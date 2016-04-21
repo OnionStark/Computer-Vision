@@ -24,4 +24,10 @@ void matrixDot(float[3][3], float[3], float[3]);
 //显示某张图像
 void show(const string path, const Mat& im);
 
+//图像的复制
+void cloneImage(IplImage* target, const IplImage* source);
+
+//把mat 变为连续的
+void converToContinue(Mat* m);
+
 #endif 

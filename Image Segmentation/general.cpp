@@ -123,3 +123,29 @@ void matrixDot(float M[3][3], float dD[3], float X[3])
     }
 }
 
+void cloneImage(IplImage* target, const IplImage* source)
+{
+	int length = source->width*source->height*source->nChannels;
+
+	for (int i = 0; i < length; ++i)
+	{
+		target->imageData[i] = source->imageData[i];
+	}
+}
+
+//把mat 变为连续的
+void converToContinue(Mat* m)
+{
+	Mat temp(m->rows, m->cols, CV_8UC3, Scalar(0, 0, 255));
+	for (int i = 0; i < m->rows; ++i)
+	{
+		uchar* p = m->ptr<uchar>(i);
+		for (int j = 0; j < m->cols; ++j)
+		{
+			temp.data[i*m->cols + j] = p[j];
+		}
+	}
+
+	show("sfsd", *m);
+	exit(0);
+}

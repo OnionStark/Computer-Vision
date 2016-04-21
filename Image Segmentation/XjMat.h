@@ -9,6 +9,8 @@ struct xjMat
 public:
 	xjMat(const Mat& M);
 	xjMat(unsigned char*, int inrows, int incols, int inc);
+
+	//这里 i 代表行，j代表列，所以 i对应 图像的 x 轴，j对应图像的y轴
 	inline unsigned char get(int i, int j, int k = 0) const
 	{
 		//为了追求效率，这里不进行下标检查

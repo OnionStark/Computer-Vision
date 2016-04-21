@@ -36,6 +36,9 @@
     <ClCompile Include="Axis.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="GlobalClass.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="base.h">
@@ -50,9 +53,6 @@
     <ClInclude Include="IntelligentScissors.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="XjMat.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -60,6 +60,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="List.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalClass.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

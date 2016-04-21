@@ -16,19 +16,27 @@ class IntellSci
 	Axis<short>* Dp;//D`(p)
 	static float Wz, Wd, Wg, Wp, Wi, Wo;
 	int* p;//记录路径
+	float* ilc;
 
 	//-------function-----
 	void computeFz();
 	void computeFgDp();
 	float computeFd(int px, int py, int qx, int qy);
 	float computeFd(const Axis<short>&p, const Axis<short>& q);
+	void computeILC();   //预处理所有的ilc值
+
+	void forMethod1();
+	void forMethod2();
 public:
-	IntellSci(Mat& image):Fz(nullptr), Fg(nullptr), Dp(nullptr), img(image), p(nullptr) {}
+	IntellSci(Mat& image):Fz(nullptr), Fg(nullptr), Dp(nullptr), img(image),
+		p(nullptr), ilc(nullptr) {}
 	~IntellSci();
 	void init();
 	float ILC(int px, int py, int qx, int qy);
 	float ILC(const Axis<int>& p, const Axis<int>& q);
-	friend void DP(int sx, int sy, IntellSci* ins);
+	int* getP() const { return p; }
+	friend void DP(int sx, int sy,IntellSci* ins);
+	friend void showinImg(IplImage*&,IntellSci*, int, int);
 };
 
 struct ActiveParam
@@ -49,6 +57,8 @@ struct Compare
 void activePrint(int m_event, int x, int y, int flags, void* param);
 
 //寻路函数
-void DP(int sx, int sy, IntellSci* ins);
+void DP(int sx, int sy,IntellSci* ins);
+
+void showinImg(IplImage*&,IntellSci*, int, int);
 
 #endif

@@ -3,6 +3,7 @@
 #include"general.h"
 #include"IntelligentScissors.h"
 #include"List.h"
+#include"GlobalClass.h"
 
 //程序的初始化函数
 void init()
@@ -21,34 +22,29 @@ void showHelp()
 	}
 	fread.seekg(0, ios::end);
 	unsigned int length = fread.tellg();
-	char* buffer = new char[length-2];
+	char* buffer = new char[length+1];
 	fread.seekg(0, ios::beg);
 	fread.read(buffer, length);
-	buffer[length-3] = '\0';
+	buffer[length] = '\0';
 	fread.close();
 	cout << buffer << endl;
 	delete[] buffer;
 }
 
-struct C
-{
-	static bool prior(int a, int b)
-	{
-		return (a < b);
-	}
-};
-
-
 int main()
 { 
 
 	init();
+	showHelp();
 
 	int length = ReadCfg::data.size();
 	int i = 0;
 	while (length--)
 	{
-		Mat image = imread(ReadCfg::data[i].path, 1);
+		getGlobal().reset();
+		cout << "方法？论文1/康奈尔0" << endl;
+		cin >> method;
+		Mat image = imread(ReadCfg::data[i].path);
 		intellSci(image);
 		++i;
 		int order;

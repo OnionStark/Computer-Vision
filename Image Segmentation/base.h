@@ -12,6 +12,7 @@ using namespace cv;
 enum Channels{B, G, R};
 typedef unsigned char uchar;
 
+extern int method;
 
 
 #endif
