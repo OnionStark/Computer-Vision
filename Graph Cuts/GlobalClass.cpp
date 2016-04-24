@@ -1,6 +1,7 @@
 #include"GlobalClass.h"
-float GlobalClass::keno = 0.46f;
+float GlobalClass::keno = 1.f;
 float GlobalClass::lambda = 1.f;
+char GlobalClass::nullMark = 'p';
 
 GlobalClass::~GlobalClass()
 {
@@ -19,4 +20,9 @@ void GlobalClass::setImage(const IplImage* p)
 		img = nullptr;
 	}
 	img = cvCloneImage(p);
+}
+void GlobalClass::reset()
+{
+	cvReleaseImage(&img);
+	img = nullptr;
 }

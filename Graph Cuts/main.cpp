@@ -33,7 +33,7 @@ int main()
 { 
 
 	init();
-	//showHelp();
+	showHelp();
 
 	int length = ReadCfg::data.size();
 	int i = 0;
@@ -47,5 +47,6 @@ int main()
 		cin >> order;
 		if (order != 1)
 			break;
+		getGlobal()->reset();
 	}
 }
